@@ -127,9 +127,16 @@ class App extends React.Component {
                 <BrowserRouter>
                     <Header defaultTags={defaultTags} onFormSearch={this.handleSearch.bind(this)} />
                     <Switch>
+                        {/* Redirect to cats default route */}
                         <Redirect from="/" exact={true} to="/cats" />
+
+                        {/* Include list of default tag routes */}
                         {defaultRoutes}
+
+                        {/* Search result route */}
                         <Route path="/search/:tag" render={({ match }) => <Gallery photos={this.state.searchResults} isLoading={this.state.isLoading} tag={match.params.tag} />} />
+                        
+                        {/* Catch-all 404 Route */}
                         <Route component={NotFound} />
                     </Switch>
                 </BrowserRouter>
