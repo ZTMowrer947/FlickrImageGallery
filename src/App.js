@@ -65,6 +65,9 @@ class App extends React.Component {
             });
     }
 
+    handleSearch(searchTerm) {
+    }
+
     render() {
         // Get list of default tags
         const defaultTags = Object.keys(this.state.defaultPhotos);
@@ -77,7 +80,7 @@ class App extends React.Component {
         return (
             <div className="App container">
                 <BrowserRouter>
-                    <Header />
+                    <Header onFormSearch={this.handleSearch.bind(this)} />
                     <Switch>
                         {defaultRoutes}
                     </Switch>

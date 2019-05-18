@@ -1,5 +1,6 @@
 // Imports
 import React from "react";
+import PropTypes from "prop-types";
 
 // Component
 class SearchForm extends React.PureComponent {
@@ -28,11 +29,19 @@ class SearchForm extends React.PureComponent {
 
         // If the current search term is different from the previous search term,
         if (this.state.searchTerm !== this.state.previousSearch) {
+            // Store search term
+            const searchTerm = this.state.searchTerm;
+
             // Update component state
             this.setState(prevState => ({
                 searchTerm: "",
                 previousSearch: prevState.searchTerm,
             }));
+
+            // Handle search
+            this.props.onSearch(searchTerm);
+
+            // TODO: Redirect to proper route
         }
     } 
 
@@ -49,6 +58,11 @@ class SearchForm extends React.PureComponent {
             </form>
         );
     }
+}
+
+// Prop Types
+SearchForm.propTypes = {
+    onSearch: PropTypes.func.isRequired,
 }
 
 // Export
