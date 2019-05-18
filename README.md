@@ -1,5 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisites before use
+This project requires the use of a Flickr API key. Here is how to use one for this project:
+
+1. Use a Yahoo! or Tumblr account to sign into Flickr.
+2. Apply for an [API Key.](https://www.flickr.com/services/apps/create/apply/)
+3. Create a `config.js` file in the `src` directory with the following structure:
+    ```javascript
+    const apiKey = "YOUR API KEY";
+    export default apiKey;
+    ```
+    Replacing `YOUR API KEY` with the API key that you recieved from Flickr.
+
+    (An example file is present in `src/config.example.js`.)
+
+After doing this, proceed to install dependencies and run the application as normal.
+
 ## Available Scripts
 
 In the project directory, you can run:
