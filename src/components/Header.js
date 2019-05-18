@@ -3,7 +3,7 @@ import React from "react";
 
 // Component
 const Header = () => (
-    <header className="App-header">
+    <header>
         <h1>Flickr Image Gallery</h1>
     </header>
 );
