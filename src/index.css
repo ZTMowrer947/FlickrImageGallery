@@ -5,7 +5,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
-    color: #3f4850;
+    color: #ddd;
+    background: #4a4a4a;
 }
 
 code {
@@ -131,4 +132,12 @@ input {
         margin: 10px;
         width: 100px;
     }
+}
+
+.not-found a, .not-found a:visited {
+    color: #ddd;
+}
+
+.not-found a:hover {
+    color: #aaa;
 }
