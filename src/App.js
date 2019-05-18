@@ -119,7 +119,7 @@ class App extends React.Component {
 
         // Map tag to route
         const defaultRoutes = defaultTags.map((tag, index) => {
-            return <Route key={index} path={`/${tag}`} exact={true} render={() => <Gallery photos={this.state.defaultPhotos[tag]} isLoading={this.state.isLoading} />} />
+            return <Route key={index} path={`/${tag}`} exact={true} render={() => <Gallery photos={this.state.defaultPhotos[tag]} isLoading={this.state.isLoading} tag={tag} />} />
         });
 
         return (
@@ -129,7 +129,7 @@ class App extends React.Component {
                     <Switch>
                         <Redirect from="/" exact={true} to="/cats" />
                         {defaultRoutes}
-                        <Route path="/search/:tag" render={() => <Gallery photos={this.state.searchResults} isLoading={this.state.isLoading} />} />
+                        <Route path="/search/:tag" render={({ match }) => <Gallery photos={this.state.searchResults} isLoading={this.state.isLoading} tag={match.params.tag} />} />
                         <Route component={NotFound} />
                     </Switch>
                 </BrowserRouter>

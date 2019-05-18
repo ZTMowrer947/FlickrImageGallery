@@ -5,7 +5,7 @@ import GalleryPhoto from "./GalleryPhoto";
 import LoadingIndicator from "./LoadingIndicator";
 
 // Component
-const Gallery = ({ photos, isLoading }) => {
+const Gallery = ({ photos, isLoading, tag }) => {
     if (isLoading) {
         return (
             <div className="photo-container">
@@ -34,7 +34,7 @@ const Gallery = ({ photos, isLoading }) => {
 
     return (
         <div className="photo-container">
-            <h2>Results</h2>
+            <h2>Results for "{tag}"</h2>
             <ul>
                 {galleryPhotos.length > 0 ? galleryPhotos: noResultsMessage}
             </ul>
@@ -52,6 +52,7 @@ Gallery.propTypes = {
         server: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
     })),
+    tag: PropTypes.string.isRequired,
 }
 
 // Export
