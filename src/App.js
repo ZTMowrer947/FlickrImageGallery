@@ -1,6 +1,6 @@
 // Imports
 import React from 'react';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import './App.css';
 import apiKey from "./config";
 import Header from "./components/Header";
@@ -127,6 +127,7 @@ class App extends React.Component {
                 <BrowserRouter>
                     <Header defaultTags={defaultTags} onFormSearch={this.handleSearch.bind(this)} />
                     <Switch>
+                        <Redirect from="/" exact={true} to="/cats" />
                         {defaultRoutes}
                         <Route path="/search/:tag" render={() => <Gallery photos={this.state.searchResults} isLoading={this.state.isLoading} />} />
                         <Route component={NotFound} />
