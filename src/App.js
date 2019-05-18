@@ -66,6 +66,29 @@ class App extends React.Component {
     }
 
     handleSearch(searchTerm) {
+        // Set state to signal that we are loading new data
+        this.setState({
+            isLoading: true,
+            searchResults: [],
+        });
+
+        // Search for photos with the given tag
+        fetchPhotos(apiKey, searchTerm)
+            // If the request suceeded,
+            .then(photos => {
+                // Store the new data in state
+                this.setState({
+                    isLoading: false,
+                    error: null,
+                    searchResults: photos.photo,
+                });
+            }).catch((error) => {
+                // Update component state with error
+                this.componentDidMount.setState({
+                    isLoading: false,
+                    error,
+                });
+            });
     }
 
     render() {
@@ -83,6 +106,7 @@ class App extends React.Component {
                     <Header onFormSearch={this.handleSearch.bind(this)} />
                     <Switch>
                         {defaultRoutes}
+                        <Route path="/search/:tag" render={() => <Gallery photos={this.state.searchResults} isLoading={this.state.isLoading} />} />
                     </Switch>
                 </BrowserRouter>
             </div>
