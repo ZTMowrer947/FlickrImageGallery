@@ -2,9 +2,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import GalleryPhoto from "./GalleryPhoto";
+import LoadingIndicator from "./LoadingIndicator";
 
 // Component
-const Gallery = ({ photos }) => {
+const Gallery = ({ photos, isLoading }) => {
+    if (isLoading) {
+        return (
+            <div className="photo-container">
+                <h2>Loading...</h2>
+                <LoadingIndicator />
+            </div>
+        );
+    }
+
     const galleryPhotos = photos.map(({ farm, id, secret, server, title}) => {
         const url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`;
 
