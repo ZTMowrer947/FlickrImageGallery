@@ -4,9 +4,7 @@ import { CircularProgress } from "@material-ui/core";
 
 // Component
 const LoadingIndicator = () => (
-    <li>
-        <CircularProgress />
-    </li>
+    <CircularProgress />
 );
 
 // Export
