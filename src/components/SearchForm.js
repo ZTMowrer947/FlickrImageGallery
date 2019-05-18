@@ -28,8 +28,13 @@ class SearchForm extends React.PureComponent {
         // Prevent default form submission behavior
         e.preventDefault();
 
+        // If the search term is one of the default tags,
+        if (this.props.defaultTags.includes(this.state.searchTerm)) {
+            // Redirect to respective default tag route
+            this.props.history.push(`/${this.state.searchTerm}`);
+        } 
         // If the current search term is different from the previous search term,
-        if (this.state.searchTerm !== this.state.previousSearch) {
+        else if (this.state.searchTerm !== this.state.previousSearch) {
             // Store search term
             const searchTerm = this.state.searchTerm;
 
@@ -65,6 +70,7 @@ class SearchForm extends React.PureComponent {
 // Prop Types
 SearchForm.propTypes = {
     onSearch: PropTypes.func.isRequired,
+    defaultTags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 }
 
 // Export

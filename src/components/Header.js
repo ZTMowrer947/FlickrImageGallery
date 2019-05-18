@@ -5,11 +5,11 @@ import Nav from "./Nav";
 import SearchForm from "./SearchForm";
 
 // Component
-const Header = ({ onFormSearch }) => (
+const Header = ({ defaultTags, onFormSearch }) => (
     <header>
         <h1>Flickr Image Gallery</h1>
 
-        <SearchForm onSearch={onFormSearch} />
+        <SearchForm defaultTags={defaultTags} onSearch={onFormSearch} />
 
         <Nav />
     </header>
@@ -18,6 +18,7 @@ const Header = ({ onFormSearch }) => (
 // Prop Types
 Header.propTypes = {
     onFormSearch: PropTypes.func.isRequired,
+    defaultTags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 }
 
 // Export

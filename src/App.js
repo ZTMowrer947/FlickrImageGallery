@@ -103,7 +103,7 @@ class App extends React.Component {
         return (
             <div className="App container">
                 <BrowserRouter>
-                    <Header onFormSearch={this.handleSearch.bind(this)} />
+                    <Header defaultTags={defaultTags} onFormSearch={this.handleSearch.bind(this)} />
                     <Switch>
                         {defaultRoutes}
                         <Route path="/search/:tag" render={() => <Gallery photos={this.state.searchResults} isLoading={this.state.isLoading} />} />
