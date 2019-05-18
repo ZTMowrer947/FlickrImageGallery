@@ -5,6 +5,7 @@ import './App.css';
 import apiKey from "./config";
 import Header from "./components/Header";
 import Gallery from "./components/Gallery";
+import NotFound from './components/NotFound';
 import fetchPhotos from "./fetchPhotos";
 
 // Component
@@ -128,6 +129,7 @@ class App extends React.Component {
                     <Switch>
                         {defaultRoutes}
                         <Route path="/search/:tag" render={() => <Gallery photos={this.state.searchResults} isLoading={this.state.isLoading} />} />
+                        <Route component={NotFound} />
                     </Switch>
                 </BrowserRouter>
             </div>
