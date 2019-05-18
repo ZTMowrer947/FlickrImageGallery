@@ -36,6 +36,27 @@ class App extends React.Component {
     componentDidMount() {
         // Get list of default tags
         const defaultTags = Object.keys(this.state.defaultPhotos);
+        
+        // Get the current path
+        const path = document.location.pathname;
+
+        // If the path indicates a search location,
+        if (path.startsWith("/search")) {
+            // Get the index of the last slash
+            const slashIndex = path.lastIndexOf("/");
+
+            // Get tag from path
+            const tag = path.substring(slashIndex + 1);
+
+            // If tag is a default tag,
+            if (defaultTags.includes(tag)) {
+                // Redirect to default tag
+                document.location.pathname = `/${tag}`;
+            }
+
+            // Search with tag
+            this.handleSearch(tag);
+        }
 
         // Map tag to API request, combined into a single Promise
         Promise.all(defaultTags.map(tag => fetchPhotos(apiKey, tag)))
