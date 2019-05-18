@@ -1,6 +1,7 @@
 // Imports
 import React from "react";
 import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 
 // Component
 class SearchForm extends React.PureComponent {
@@ -41,7 +42,8 @@ class SearchForm extends React.PureComponent {
             // Handle search
             this.props.onSearch(searchTerm);
 
-            // TODO: Redirect to proper route
+            // Redirect to proper route
+            this.props.history.push(`/search/${searchTerm}`);
         }
     } 
 
@@ -66,4 +68,4 @@ SearchForm.propTypes = {
 }
 
 // Export
-export default SearchForm;
+export default withRouter(SearchForm);
