@@ -37,7 +37,7 @@ class App extends React.Component {
 
         // Map tag to route
         const defaultRoutes = defaultTags.map((tag, index) => {
-            return <Route key={index} path={`/${tag}`} exact={true} render={() => <Gallery photos={this.state.defaultPhotos[tag]} />} />
+            return <Route key={index} path={`/${tag}`} exact={true} render={() => <Gallery photos={this.state.defaultPhotos[tag]} isLoading={this.state.isLoading} />} />
         });
 
         return (

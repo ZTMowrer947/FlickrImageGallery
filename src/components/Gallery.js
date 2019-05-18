@@ -27,6 +27,7 @@ const Gallery = ({ photos }) => {
 
 // Prop Types
 Gallery.propTypes = {
+    isLoading: PropTypes.bool.isRequired,
     photos: PropTypes.arrayOf(PropTypes.shape({
         farmId: PropTypes.number.isRequired,
         id: PropTypes.string.isRequired,
