@@ -5,8 +5,8 @@ import GalleryPhoto from "./GalleryPhoto";
 
 // Component
 const Gallery = ({ photos }) => {
-    const galleryPhotos = photos.map(({ farmId, id, secret, server, title}) => {
-        const url = `https://farm${farmId}.staticflickr.com/${server}/${id}_${secret}.jpg`;
+    const galleryPhotos = photos.map(({ farm, id, secret, server, title}) => {
+        const url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`;
 
         return (
             <li key={id}>
@@ -29,7 +29,7 @@ const Gallery = ({ photos }) => {
 Gallery.propTypes = {
     isLoading: PropTypes.bool.isRequired,
     photos: PropTypes.arrayOf(PropTypes.shape({
-        farmId: PropTypes.number.isRequired,
+        farm: PropTypes.number.isRequired,
         id: PropTypes.string.isRequired,
         secret: PropTypes.string.isRequired,
         server: PropTypes.string.isRequired,
