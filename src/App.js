@@ -42,9 +42,8 @@ class App extends React.Component {
 
         return (
             <div className="App container">
-                <Header />
-
                 <BrowserRouter>
+                    <Header />
                     <Switch>
                         {defaultRoutes}
                     </Switch>
