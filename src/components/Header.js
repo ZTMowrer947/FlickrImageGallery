@@ -1,5 +1,6 @@
 // Imports
 import React from "react";
+import Nav from "./Nav";
 
 // Component
 const Header = () => (
@@ -16,13 +17,7 @@ const Header = () => (
             </button>
         </form>
 
-        <nav className="main-nav">
-            <ul>
-                <li><a href='#'>Cats</a></li>
-                <li><a href='#'>Dogs</a></li>
-                <li><a href='#'>Computers</a></li>
-            </ul>
-        </nav>
+        <Nav />
     </header>
 );
 
