@@ -106,7 +106,7 @@ class App extends React.Component {
                 });
             }).catch((error) => {
                 // Update component state with error
-                this.componentDidMount.setState({
+                this.setState({
                     isLoading: false,
                     error,
                 });
