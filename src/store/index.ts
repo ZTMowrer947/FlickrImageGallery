@@ -1,4 +1,5 @@
 // Imports
+import "react-hot-loader";
 import { RouterAction, routerMiddleware } from "connected-react-router";
 import { createBrowserHistory } from "history";
 import {

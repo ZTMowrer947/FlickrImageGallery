@@ -1,6 +1,7 @@
 // Imports
 import React from "react";
 import Container from "react-bootstrap/Container";
+import { hot } from "react-hot-loader/root";
 
 // Component
 const App: React.FC = () => (
@@ -10,4 +11,4 @@ const App: React.FC = () => (
 );
 
 // Export
-export default App;
+export default hot(App);

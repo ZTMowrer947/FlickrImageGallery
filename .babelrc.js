@@ -33,6 +33,9 @@ module.exports = api => {
         // TypeScript 3.7 features
         "@babel/plugin-proposal-optional-chaining",
         "@babel/plugin-proposal-nullish-coalescing-operator",
+
+        // React HMR
+        "react-hot-loader/babel",
     ];
 
     // If not in production, transform babel runtime
