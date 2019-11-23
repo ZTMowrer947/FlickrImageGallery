@@ -27,6 +27,9 @@ module.exports = api => {
         // Class properties
         "@babel/plugin-proposal-class-properties",
 
+        // Dynamic imports
+        "@babel/plugin-syntax-dynamic-import",
+
         // TypeScript 3.7 features
         "@babel/plugin-proposal-optional-chaining",
         "@babel/plugin-proposal-nullish-coalescing-operator",
