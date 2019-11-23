@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // Environment calculation
 const env = (() => {
-    const nodeEnv = process.env.NODE_ENV;
+    const nodeEnv = process.env.NODE_ENV || "development";
 
     if (nodeEnv.startsWith("prod")) return "production";
     else return "development";
@@ -95,3 +95,6 @@ const config = {
         runtimeChunk: "single",
     },
 };
+
+// Export
+module.exports = config;
