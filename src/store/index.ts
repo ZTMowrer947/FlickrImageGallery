@@ -5,10 +5,10 @@ import {
     Store,
     Middleware,
     applyMiddleware,
-    compose,
     createStore,
     StoreEnhancer,
 } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 import AppState from "./AppState";
 import { GalleryAction } from "./gallery/types";
 import createRootReducer from "./reducer";
@@ -24,7 +24,7 @@ const configureStore = (): Store<AppState, RouterAction | GalleryAction> => {
 
     // Define enhancer list and composed enhancer
     const enhancers: StoreEnhancer[] = [middlewareEnhancer];
-    const enhancer: StoreEnhancer = compose(...enhancers);
+    const enhancer: StoreEnhancer = composeWithDevTools(...enhancers);
 
     // Create root reducer
     const reducer = createRootReducer(history);
