@@ -1,5 +1,6 @@
 // Imports
 const path = require("path");
+const ExtractCssChunksWebpackPlugin = require("extract-css-chunks-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // Environment calculation
@@ -10,6 +11,8 @@ const env = (() => {
     else return "development";
 })();
 
+const filenameTriplet = env === "production" ? "[contenthash]" : "bundle";
+
 // Plugins
 const plugins = [
     new HtmlWebpackPlugin({
@@ -18,9 +21,11 @@ const plugins = [
         title: "Flickr Image Gallery",
         template: path.resolve("src", "template.pug"),
     }),
-];
 
-const filenameTriplet = env === "production" ? "[contenthash]" : "bundle";
+    new ExtractCssChunksWebpackPlugin({
+        filename: path.join("styles", `[name].${filenameTriplet}.css`),
+    }),
+];
 
 // Configuration
 /**
@@ -72,6 +77,28 @@ const config = {
             {
                 test: /\.pug$/,
                 loader: "pug-loader",
+            },
+            {
+                test: /\.module\.(sa|sc|c)ss$/,
+                use: [
+                    ExtractCssChunksWebpackPlugin.loader,
+                    {
+                        loader: "css-loader",
+                        options: { modules: true, sourceMap: true },
+                    },
+                    { loader: "postcss-loader", options: { sourceMap: true } },
+                    { loader: "sass-loader", options: { sourceMap: true } },
+                ],
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                exclude: /\.module\.(sa|sc|c)ss$/,
+                use: [
+                    ExtractCssChunksWebpackPlugin.loader,
+                    { loader: "css-loader", options: { sourceMap: true } },
+                    { loader: "postcss-loader", options: { sourceMap: true } },
+                    { loader: "sass-loader", options: { sourceMap: true } },
+                ],
             },
         ],
     },
