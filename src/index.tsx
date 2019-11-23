@@ -1,9 +1,12 @@
 // Imports
+import { ConnectedRouter } from "connected-react-router";
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 import "bootstrap/scss/bootstrap.scss";
+
 import App from "./App";
+import configureStore, { history } from "./store";
 
 // App rendering
 function renderApp(): void {
@@ -13,11 +16,16 @@ function renderApp(): void {
     // If container was not found, throw error
     if (!container) throw new Error("Could not find container for React app");
 
+    // Create Redux store
+    const store = configureStore();
+
     // Otherwise, mount react app
     ReactDOM.render(
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>,
+        <Provider store={store}>
+            <ConnectedRouter history={history}>
+                <App />
+            </ConnectedRouter>
+        </Provider>,
         container
     );
 }
