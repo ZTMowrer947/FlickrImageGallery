@@ -32,6 +32,21 @@ const configureStore = (): Store<AppState, RouterAction | GalleryAction> => {
     // Create Redux store
     const store = createStore(reducer, enhancer);
 
+    // HMR Setup
+    if (module.hot && process.env.NODE_ENV !== "production") {
+        // Reducers
+        module.hot.accept("./reducer", async () => {
+            // Import new root reducer factory
+            const { default: createNewRootReducer } = await import("./reducer");
+
+            // Create new root reducer
+            const newReducer = createNewRootReducer(history);
+
+            // Replace reducer
+            store.replaceReducer(newReducer);
+        });
+    }
+
     // Return created store
     return store;
 };
