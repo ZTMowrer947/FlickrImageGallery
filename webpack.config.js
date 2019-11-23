@@ -42,7 +42,7 @@ const config = {
 
         // Output directories
         path: path.resolve("public"),
-        publicPath: "/public",
+        publicPath: "/",
     },
 
     // Devtool
@@ -93,6 +93,14 @@ const config = {
         },
 
         runtimeChunk: "single",
+    },
+
+    // Dev server
+    devServer: {
+        port: process.env.PORT ? parseInt(process.env.PORT) : 8080,
+        contentBase: path.resolve("public"),
+        historyApiFallback: true,
+        hot: true,
     },
 };
 
