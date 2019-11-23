@@ -8,7 +8,9 @@
         "react": "^16.12.0",
         "react-dom": "^16.12.0"
     },
-    "scripts": {},
+    "scripts": {
+        "start": "webpack-dev-server --open"
+    },
     "devDependencies": {
         "@babel/core": "^7.7.4",
         "@babel/plugin-proposal-class-properties": "^7.7.4",
