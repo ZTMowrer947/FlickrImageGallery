@@ -23,7 +23,7 @@ export interface FetchPhotosFailedAction
     payload: Error;
 }
 
-export type AppAction =
+export type GalleryAction =
     | FetchPhotosStartAction
     | FetchPhotosSuccessAction
     | FetchPhotosFailedAction;
@@ -35,7 +35,7 @@ export interface Photo {
     readonly title: string;
 }
 
-export interface AppState {
+export interface GalleryState {
     photoIds: string[];
     photosById: { [id: string]: Photo };
     error?: Error;
