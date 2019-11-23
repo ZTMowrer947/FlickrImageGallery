@@ -45,6 +45,11 @@ const config = {
         publicPath: "/",
     },
 
+    // Extension resolution
+    resolve: {
+        extensions: [".tsx", ".ts", ".js", ".json"],
+    },
+
     // Devtool
     devtool: env === "production" ? "source-map" : "cheap-module-source-map",
 
