@@ -1,27 +1,33 @@
 // Imports
-import { Action } from "redux";
+import {
+    FSAWithMeta,
+    FSAWithPayload,
+    ErrorFSAWithPayload,
+} from "flux-standard-action";
 
 // Action types
 export const FETCH_PHOTOS_START = "FETCH_PHOTOS_START";
 export const FETCH_PHOTOS_DONE = "FETCH_PHOTOS_DONE";
 
-export interface FetchPhotosStartAction
-    extends Action<typeof FETCH_PHOTOS_START> {
-    payload: {
-        tag: string;
-    };
+interface FetchPhotosStartMeta {
+    tag: string;
 }
 
-export interface FetchPhotosSuccessAction
-    extends Action<typeof FETCH_PHOTOS_DONE> {
-    payload: Photo[];
-}
+export type FetchPhotosStartAction = FSAWithMeta<
+    typeof FETCH_PHOTOS_START,
+    undefined,
+    FetchPhotosStartMeta
+>;
 
-export interface FetchPhotosFailedAction
-    extends Action<typeof FETCH_PHOTOS_DONE> {
-    error: true;
-    payload: Error;
-}
+export type FetchPhotosSuccessAction = FSAWithPayload<
+    typeof FETCH_PHOTOS_DONE,
+    Photo[]
+>;
+
+export type FetchPhotosFailedAction = ErrorFSAWithPayload<
+    typeof FETCH_PHOTOS_DONE,
+    Error
+>;
 
 export type GalleryAction =
     | FetchPhotosStartAction

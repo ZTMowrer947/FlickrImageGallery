@@ -14,7 +14,7 @@ export const startPhotoFetch: ActionCreator<FetchPhotosStartAction> = (
     tag: string
 ) => ({
     type: FETCH_PHOTOS_START,
-    payload: { tag },
+    meta: { tag },
 });
 
 export const finishPhotoFetch: ActionCreator<
