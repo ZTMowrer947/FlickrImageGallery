@@ -1,5 +1,6 @@
 // Imports
 const path = require("path");
+const Dotenv = require("dotenv-webpack");
 const ExtractCssChunksWebpackPlugin = require("extract-css-chunks-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -15,6 +16,8 @@ const filenameTriplet = env === "production" ? "[contenthash]" : "bundle";
 
 // Plugins
 const plugins = [
+    new Dotenv(),
+
     new HtmlWebpackPlugin({
         xhtml: true,
         inject: true,
