@@ -1,0 +1,5 @@
+# Asset output folder
+public/
+
+# Markdown files
+*.md
