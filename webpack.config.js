@@ -2,6 +2,7 @@
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
 const ExtractCssChunksWebpackPlugin = require("extract-css-chunks-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // Environment calculation
@@ -29,6 +30,13 @@ const plugins = [
         filename: path.join("styles", `[name].${filenameTriplet}.css`),
     }),
 ];
+
+if (env === "development")
+    plugins.push(
+        new ForkTsCheckerWebpackPlugin({
+            eslint: true,
+        })
+    );
 
 // Configuration
 /**
