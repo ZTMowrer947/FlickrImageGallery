@@ -14,7 +14,7 @@ import {
 import { finishPhotoFetch } from "./creators";
 
 // Dependency Types
-interface FetchPhotosEpicDeps {
+export interface FetchPhotosEpicDeps {
     fetchPhotos: (tag: string) => Observable<Photo[]>;
 }
 

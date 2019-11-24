@@ -1,4 +1,5 @@
 // Imports
+import "react-hot-loader";
 import { ConnectedRouter } from "connected-react-router";
 import React from "react";
 import ReactDOM from "react-dom";
