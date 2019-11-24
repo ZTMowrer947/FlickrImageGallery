@@ -29,16 +29,19 @@ class Gallery extends React.PureComponent<
         if (this.props.isLoading) return <h1>Loading...</h1>;
 
         const photos = this.props.photos.map(photo => (
-            <Col as="li" sm={6} md={4} lg={3} xl={2} key={photo.id}>
+            <Col
+                className="photo-item"
+                sm={6}
+                md={4}
+                lg={3}
+                xl={2}
+                key={photo.id}
+            >
                 <GalleryPhoto photo={photo} />
             </Col>
         ));
 
-        return (
-            <Row as="ul" className="photo-container">
-                {photos}
-            </Row>
-        );
+        return <Row className="photo-container">{photos}</Row>;
     }
 }
 
