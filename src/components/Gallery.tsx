@@ -25,6 +25,17 @@ class Gallery extends React.PureComponent<
         this.props.fetchPhotos(this.props.match.params.tag);
     }
 
+    componentDidUpdate(
+        prevProps: PropTypes & RouteComponentProps<MatchParams>
+    ): void {
+        if (
+            this.props.match.params.tag !== prevProps.match.params.tag &&
+            !this.props.isLoading
+        ) {
+            this.props.fetchPhotos(this.props.match.params.tag);
+        }
+    }
+
     render(): React.ReactNode {
         if (this.props.isLoading) return <h1>Loading...</h1>;
 
