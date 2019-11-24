@@ -41,7 +41,12 @@ class Gallery extends React.PureComponent<
             </Col>
         ));
 
-        return <Row className="photo-container">{photos}</Row>;
+        return (
+            <>
+                <h1>Results for &quot;{this.props.match.params.tag}&quot;:</h1>
+                <Row className="photo-container">{photos}</Row>
+            </>
+        );
     }
 }
 
