@@ -8,9 +8,8 @@ import ConnectedGallery from "./containers/ConnectedGallery";
 
 // Component
 const App: React.FC = () => (
-    <Container fluid>
+    <Container fluid className="d-flex flex-column align-items-center">
         <Header />
-        <h1>Hello, World!</h1>
         <Switch>
             <Redirect from="/" to="/photos/dogs" exact />
             <Route path="/photos/:tag" component={ConnectedGallery} />
