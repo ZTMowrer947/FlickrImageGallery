@@ -75,6 +75,7 @@ const config = {
         rules: [
             {
                 test: /\.tsx?$/,
+                exclude: /\/__tests__\//,
                 loader: "babel-loader",
                 options: {
                     cacheDirectory: true,
