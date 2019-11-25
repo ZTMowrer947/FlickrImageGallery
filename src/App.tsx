@@ -5,6 +5,7 @@ import { hot } from "react-hot-loader/root";
 import { Switch, Redirect, Route } from "react-router-dom";
 import Header from "./components/Header";
 import ConnectedGallery from "./containers/ConnectedGallery";
+import NotFound from "./components/NotFound";
 
 // Component
 const App: React.FC = () => (
@@ -13,6 +14,7 @@ const App: React.FC = () => (
         <Switch>
             <Redirect from="/" to="/photos/dogs" exact />
             <Route path="/photos/:tag" component={ConnectedGallery} />
+            <Route component={NotFound} />
         </Switch>
     </Container>
 );
