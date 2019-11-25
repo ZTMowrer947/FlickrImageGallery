@@ -3,6 +3,7 @@ import { MapStateToProps, MapDispatchToProps, connect } from "react-redux";
 import Gallery, { GalleryPropTypes } from "../components/Gallery";
 import AppState from "../store/AppState";
 import { startPhotoFetch } from "../store/gallery";
+import { getPhotos } from "../store/gallery/selectors";
 
 // Redux state-to-prop mapping
 const mapStateToProps: MapStateToProps<
@@ -10,7 +11,7 @@ const mapStateToProps: MapStateToProps<
     {},
     AppState
 > = state => ({
-    photos: state.gallery.photoIds.map(id => state.gallery.photosById[id]),
+    photos: getPhotos(state),
     isLoading: state.gallery.loading,
 });
 
