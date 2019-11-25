@@ -1,6 +1,7 @@
 // Imports
 import { Reducer } from "redux";
 import { tassign } from "tassign";
+import EntityMap from "../EntityMap";
 import {
     GalleryState,
     GalleryAction,
@@ -44,7 +45,7 @@ const gallery: Reducer<GalleryState, GalleryAction> = (
             const photoIds = photos.map(photo => photo.id);
             const photosById = photos.reduce(
                 (acc, photo) => tassign(acc, { [photo.id]: photo }),
-                {} as { [id: string]: Photo }
+                {} as EntityMap<Photo>
             );
 
             return tassign(state, {

@@ -4,6 +4,7 @@ import {
     FSAWithPayload,
     ErrorFSAWithPayload,
 } from "flux-standard-action";
+import EntityMap from "../EntityMap";
 
 // Action types
 export const FETCH_PHOTOS_START = "FETCH_PHOTOS_START";
@@ -43,7 +44,7 @@ export interface Photo {
 
 export interface GalleryState {
     photoIds: string[];
-    photosById: { [id: string]: Photo };
+    photosById: EntityMap<Photo>;
     error?: Error;
     loading: boolean;
 }
