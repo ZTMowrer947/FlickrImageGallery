@@ -13,7 +13,7 @@ const App: React.FC = () => (
         <Header />
         <Switch>
             <Redirect from="/" to="/photos/dogs" exact />
-            <Route path="/photos/:tag" component={ConnectedGallery} />
+            <Route path="/photos/:tag" component={ConnectedGallery} exact />
             <Route component={NotFound} />
         </Switch>
     </Container>
