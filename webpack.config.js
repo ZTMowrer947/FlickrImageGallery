@@ -35,6 +35,7 @@ if (env === "development")
     plugins.push(
         new ForkTsCheckerWebpackPlugin({
             eslint: true,
+            reportFiles: ["src/**/*.{ts, tsx}"],
         })
     );
 
