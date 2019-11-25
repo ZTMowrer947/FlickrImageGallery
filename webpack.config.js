@@ -93,7 +93,12 @@ const config = {
             {
                 test: /\.module\.(sa|sc|c)ss$/,
                 use: [
-                    ExtractCssChunksWebpackPlugin.loader,
+                    {
+                        loader: ExtractCssChunksWebpackPlugin.loader,
+                        options: {
+                            hot: env === "development",
+                        },
+                    },
                     {
                         loader: "css-loader",
                         options: { modules: true, sourceMap: true },
@@ -106,7 +111,12 @@ const config = {
                 test: /\.(sa|sc|c)ss$/,
                 exclude: /\.module\.(sa|sc|c)ss$/,
                 use: [
-                    ExtractCssChunksWebpackPlugin.loader,
+                    {
+                        loader: ExtractCssChunksWebpackPlugin.loader,
+                        options: {
+                            hot: env === "development",
+                        },
+                    },
                     { loader: "css-loader", options: { sourceMap: true } },
                     { loader: "postcss-loader", options: { sourceMap: true } },
                     { loader: "sass-loader", options: { sourceMap: true } },
