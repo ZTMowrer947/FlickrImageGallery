@@ -4,6 +4,7 @@ import React from "react";
 import { StaticRouter, Route } from "react-router-dom";
 import Gallery, { GalleryPropTypes } from "../Gallery";
 import { Photo } from "../../store/gallery/types";
+import LoadingIndicator from "../LoadingIndicator";
 
 // Fixture setup
 interface PropTypes extends GalleryPropTypes {
@@ -89,6 +90,6 @@ describe("Gallery component", () => {
         );
 
         // Expect fixture to have only rendered loading indicator
-        expect(wrapper).toContainReact(<h1>Loading...</h1>);
+        expect(wrapper).toContainReact(<LoadingIndicator />);
     });
 });
