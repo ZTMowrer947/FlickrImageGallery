@@ -53,10 +53,19 @@ class Gallery extends React.PureComponent<
             </Col>
         ));
 
+        const noResultsItem = (
+            <div className="not-found d-flex flex-column align-items-center">
+                <h3>No Results Found</h3>
+                <p>Your search did not return any results.</p>
+            </div>
+        );
+
         return (
             <>
                 <h1>Results for &quot;{this.props.match.params.tag}&quot;:</h1>
-                <Row className="photo-container">{photos}</Row>
+                <Row className="photo-container">
+                    {photos.length > 0 ? photos : noResultsItem}
+                </Row>
             </>
         );
     }
