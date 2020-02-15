@@ -29,6 +29,9 @@
             "plugin:prettier/recommended",
             "prettier/@typescript-eslint",
             "prettier/react"
+        ],
+        "ignorePatterns": [
+            "old/"
         ]
     },
     "browserslist": {
