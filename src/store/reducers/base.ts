@@ -1,6 +1,6 @@
 // Imports
 import { createReducer } from '@reduxjs/toolkit';
-import { serializeError } from 'serialize-error';
+import { ErrorObject } from 'serialize-error';
 
 import {
     startPhotoFetch,
@@ -11,7 +11,7 @@ import {
 // Initial state
 const initialState = {
     isFetching: false,
-    error: null as ReturnType<typeof serializeError> | null,
+    error: null as ErrorObject | null,
 };
 
 // Reducer
