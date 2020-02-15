@@ -1,5 +1,6 @@
 // Imports
 import produce from 'immer';
+import { serializeError } from 'serialize-error';
 
 import Photo from '../../models/Photo';
 import {
@@ -27,7 +28,7 @@ describe('Base reducer', () => {
         // Setup test state
         const testState = produce(state, draft => {
             // Attach error
-            draft.error = new Error();
+            draft.error = serializeError(new Error());
         });
 
         // Define action arguments
@@ -105,7 +106,7 @@ describe('Base reducer', () => {
             draft.isFetching = false;
 
             // Error should be attached to state
-            draft.error = error;
+            draft.error = serializeError(error);
         });
 
         // Create action

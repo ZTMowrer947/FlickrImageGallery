@@ -1,5 +1,6 @@
 // Imports
 import { createAction } from '@reduxjs/toolkit';
+import { serializeError } from 'serialize-error';
 
 import Photo from '../models/Photo';
 import Tag from '../models/Tag';
@@ -27,7 +28,7 @@ export const photoFetchSuccess = createAction(
 export const photoFetchFailed = createAction(
     'PHOTO_FETCH_FAILED',
     (error: Error) => ({
-        payload: error,
+        payload: serializeError(error),
         error: true,
     })
 );

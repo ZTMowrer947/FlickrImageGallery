@@ -1,4 +1,6 @@
 // Imports
+import { serializeError } from 'serialize-error';
+
 import {
     startPhotoFetch,
     photoFetchSuccess,
@@ -70,7 +72,7 @@ describe('Action creators', () => {
         // Define expected action
         const expected = {
             type: photoFetchFailed.type,
-            payload: error,
+            payload: serializeError(error),
             error: true,
         };
 
