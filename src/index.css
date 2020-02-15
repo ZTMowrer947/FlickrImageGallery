@@ -1,5 +1,6 @@
 /* Maximize document height */
 html,
-body {
+body,
+#root {
     height: 100%;
 }

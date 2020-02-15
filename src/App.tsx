@@ -2,13 +2,15 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 
+import Header from './components/Header';
+
 import './App.css';
 
 // App component
 const App: React.FC = () => {
     return (
-        <Container fluid>
-            <h1>Hello!</h1>
+        <Container fluid className="h-100">
+            <Header />
         </Container>
     );
 };
