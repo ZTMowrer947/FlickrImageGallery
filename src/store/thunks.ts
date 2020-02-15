@@ -33,6 +33,9 @@ export function fetchPhotosByTag(tag: string): FetchPhotoAction {
         } catch (error) {
             // If fetch fails, dispatch failure action
             dispatch(photoFetchFailed(error));
+
+            // Stop here
+            return;
         }
 
         // Otherwise, dispatch success action
@@ -52,6 +55,6 @@ export function fetchPhotosIfNeeded(tag: string): FetchPhotoAction {
         }
 
         // Otherwise, fetch photo data
-        dispatch(fetchPhotosByTag(tag));
+        await dispatch(fetchPhotosByTag(tag));
     };
 }
