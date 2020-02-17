@@ -18,7 +18,7 @@ interface PropTypes {
 const Gallery: React.FC<PropTypes> = ({ photos, tag }) => {
     // Map photos into gallery items
     const photoItems = photos.map(photo => (
-        <Col className="photo-item" sm={6} md={4} lg={3} xl={2} key={photo.id}>
+        <Col sm={6} md={4} lg={3} xl={2} key={photo.id}>
             <GalleryPhoto photo={photo} />
         </Col>
     ));
@@ -35,9 +35,7 @@ const Gallery: React.FC<PropTypes> = ({ photos, tag }) => {
     return (
         <>
             <h1>Results for &quot;{tag}&quot;:</h1>
-            <Row className="photo-container">
-                {photos.length > 0 ? photoItems : noResultsItem}
-            </Row>
+            <Row>{photos.length > 0 ? photoItems : noResultsItem}</Row>
         </>
     );
 };
