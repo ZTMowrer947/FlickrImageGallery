@@ -42,7 +42,7 @@ const GalleryPage: React.FC<PropTypes> = ({ match }) => {
     // Fetch photos if needed
     useEffect(() => {
         // Fetch photos with tag if none are present in state
-        dispatch(fetchPhotosIfNeeded(tag)).then();
+        dispatch(fetchPhotosIfNeeded(tag));
     }, [dispatch, tag]);
 
     // If we are loading, render spinner after 200ms delay
