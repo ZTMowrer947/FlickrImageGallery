@@ -1,39 +1,27 @@
 // Imports
-import "react-hot-loader";
-import { ConnectedRouter } from "connected-react-router";
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import "bootstrap/scss/bootstrap.scss";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
-import App from "./App";
-import configureStore, { history } from "./store";
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import store from './store';
 
-// App rendering
-function renderApp(): void {
-    // Get container to mount react app on
-    const container = document.getElementById("app");
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
-    // If container was not found, throw error
-    if (!container) throw new Error("Could not find container for React app");
+// Render app
+ReactDOM.render(
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>,
+    document.getElementById('root')
+);
 
-    // Create Redux store
-    const store = configureStore();
-
-    // Otherwise, mount react app
-    ReactDOM.render(
-        <Provider store={store}>
-            <ConnectedRouter history={history}>
-                <App />
-            </ConnectedRouter>
-        </Provider>,
-        container
-    );
-}
-
-// If DOM has not yet loaded,
-if (document.readyState === "loading")
-    // Render app when DOM is ready
-    document.addEventListener("DOMContentLoaded", renderApp);
-// Otherwise, render app immediately
-else renderApp();
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

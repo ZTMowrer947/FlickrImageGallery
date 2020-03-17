@@ -1,23 +1,31 @@
 // Imports
-import React from "react";
-import Container from "react-bootstrap/Container";
-import { hot } from "react-hot-loader/root";
-import { Switch, Redirect, Route } from "react-router-dom";
-import Header from "./components/Header";
-import ConnectedGallery from "./containers/ConnectedGallery";
-import NotFound from "./components/NotFound";
+import React from 'react';
+import Container from 'react-bootstrap/Container';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
-// Component
-const App: React.FC = () => (
-    <Container fluid className="d-flex flex-column align-items-center">
-        <Header />
-        <Switch>
-            <Redirect from="/" to="/photos/dogs" exact />
-            <Route path="/photos/:tag" component={ConnectedGallery} exact />
-            <Route component={NotFound} />
-        </Switch>
-    </Container>
-);
+import Header from './components/Header';
+import GalleryPage from './pages/GalleryPage';
+
+import './App.css';
+
+// App component
+const App: React.FC = () => {
+    return (
+        <Container
+            fluid
+            className="h-100 d-flex flex-column align-items-center"
+        >
+            <Header />
+            <Switch>
+                <Redirect from="/" to="/tagged/dogs" exact />
+                <Route
+                    path="/tagged/:tag"
+                    render={routeProps => <GalleryPage {...routeProps} />}
+                />
+            </Switch>
+        </Container>
+    );
+};
 
 // Export
-export default hot(App);
+export default App;

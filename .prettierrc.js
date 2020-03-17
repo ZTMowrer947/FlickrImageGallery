@@ -6,8 +6,8 @@ module.exports = {
     // Semicolons at the end of statements
     semi: true,
 
-    // Use double quotes
-    singleQuote: false,
+    // Use single quotes
+    singleQuote: true,
 
     // Use trailing comma where valid in ECMAScript 5
     trailingComma: "es5",

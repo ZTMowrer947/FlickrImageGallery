@@ -1,13 +1,14 @@
-// Import
-import React, { useState, useCallback } from "react";
-import { Form } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
-import "./SearchForm.scss";
+// Imports
+import React, { useCallback, useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import { useHistory } from 'react-router-dom';
+
+import './SearchForm.css';
 
 // Component
 const SearchForm: React.FC = () => {
     // Initialize state
-    const [searchTerm, setSearchTerm] = useState("");
+    const [searchTerm, setSearchTerm] = useState('');
 
     // Get history object
     const history = useHistory();
@@ -19,7 +20,7 @@ const SearchForm: React.FC = () => {
             event.preventDefault();
 
             // Navigate to route for search term
-            history.push(`/photos/${searchTerm}`);
+            history.push(`/tagged/${searchTerm}`);
         },
         [history, searchTerm]
     );
@@ -29,7 +30,7 @@ const SearchForm: React.FC = () => {
         (event: React.ChangeEvent<HTMLInputElement>): void => {
             setSearchTerm(event.target.value);
         },
-        [setSearchTerm]
+        []
     );
 
     return (
